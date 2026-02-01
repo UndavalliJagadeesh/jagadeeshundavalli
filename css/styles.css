@@ -82,6 +82,7 @@ body {
 main {
   position: relative;
   z-index: 1;
+  margin-top: 70px;
 }
 
 .container {
@@ -192,12 +193,15 @@ p {
    ============================================ */
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 30;
   backdrop-filter: blur(10px);
   background: rgba(10, 14, 39, 0.6);
   border-bottom: 1px solid var(--glass-border);
+  transition: all var(--transition-base);
 }
 
 .header-inner {
@@ -320,7 +324,6 @@ p {
   padding: var(--spacing-lg);
   transition: all var(--transition-base);
   position: relative;
-  overflow: hidden;
 }
 
 .glass-card::before {
@@ -529,9 +532,9 @@ p {
   display: flex;
   gap: 2rem;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
   margin-top: var(--spacing-xl);
-  padding-bottom: 1rem;
+  padding: 0.5rem 0 1rem 0;
   scroll-behavior: smooth;
 }
 
