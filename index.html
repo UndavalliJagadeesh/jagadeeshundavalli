@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jagadeesh Undavalli — Backend Engineer</title>
+  <meta name="description" content="Premium portfolio of Jagadeesh Undavalli — Backend engineer specializing in Java, Spring Boot, and microservices architecture." />
+  <link href="https://fonts.googleapis.com" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ruthie&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <canvas id="stars-canvas"></canvas>
+  
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#">JU</a>
+      <nav class="nav" id="nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content reveal">
+          <div class="floating-icon icon-code">{ }</div>
+          <h1>Hi! I'm Jagadeesh<br><span class="gradient-text">Software Engineer</span></h1>
+          <p class="lead">I design and build robust backend systems that power modern applications. Specializing in microservices architecture, distributed systems, and enterprise-grade solutions with Java and Spring Boot.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="#projects">Explore Work</a>
+            <a class="btn btn-secondary" href="#contact">Start a Conversation</a>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-badge">Java</span>
+            <span class="tech-badge">Spring Boot</span>
+            <span class="tech-badge">Microservices</span>
+            <span class="tech-badge">Git</span>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="glass-orb"></div>
+        </div>
+      </div>
+    </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>About</h2>
+            <div class="floating-icon icon-star">★</div>
+          </div>
+          <div class="glass-card reveal about-card">
+            <div class="about-content">
+              <p>I'm a Software Engineer specializing in Java backend development with a passion for building scalable, resilient systems that handle mission-critical workloads. With 1+ years of experience designing and implementing distributed microservices architectures, I focus on clean code, API design, and system reliability.</p>
+              <p>My expertise: microservices design patterns, API development with Spring Boot. I thrive on solving complex backend challenges and mentoring teams on best practices.</p>
+            </div>
+            <div class="about-photo">
+              <img src="assets/profileImage.jpeg" alt="Jagadeesh Undavalli" class="photo-image">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Work Experience</h2>
+            <div class="floating-icon icon-star">★</div>
+          </div>
+          <div class="experience-scroll">
+            <div class="glass-card reveal-stagger experience-card">
+              <div class="experience-header">
+                <h3>Software Engineer</h3>
+                <span class="experience-date">Oct 2024 - Present</span>
+              </div>
+              <p class="experience-company">Persistent Systems Ltd</p>
+              <p class="experience-location">Hyderabad, Telangana, India</p>
+              <p class="experience-duration">1 year 5 months</p>
+              <ul class="experience-list">
+                <li>Working with US based client in BFSI domain.</li>
+                <li>Enabled new functionalities in existing applications enhancing cross application communication.</li>
+                <li></li>
+                <li>Maintained and upgraded Java, JAR versions to ensure compatibility and enhance application 
+performance.</li>
+              </ul>
+            </div>
+
+            <div class="glass-card reveal-stagger experience-card">
+              <div class="experience-header">
+                <h3>Student Intern</h3>
+                <span class="experience-date">Jan 2024 - Sep 2024</span>
+              </div>
+              <p class="experience-company">Persistent Systems Ltd</p>
+              <p class="experience-location">Remote</p>
+              <p class="experience-duration">9 months</p>
+              <ul class="experience-list">
+                <li>Gained hands-on experience with key technologies, including JUnit, Maven, Spring, and Spring Boot</li>
+                <li>Familiarized with Scrum and Kanban practices, enhancing understanding of agile methodologies</li>
+                <li>Participated in internal hackathon, gaining insights into transforming ideas into functional working models</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Featured Work</h2>
+            <div class="floating-icon icon-rocket">🚀</div>
+          </div>
+          <div class="grid projects-grid">
+            <article class="glass-card reveal-stagger">
+              <div class="card-icon">⚡</div>
+              <h3>E-Commerce Microservices Platform</h3>
+              <p>Architected a production microservices system for a high-traffic e-commerce platform. Decomposed monolithic application into 8+ services using Spring Boot, managing 100k+ concurrent users with &lt;99ms p99 latency.</p>
+              <div class="card-meta">
+                <span class="badge">Spring Boot</span>
+                <span class="badge">Docker</span>
+                <span class="badge">Kubernetes</span>
+              </div>
+              <a href="#" class="link">View case study →</a>
+            </article>
+
+            <article class="glass-card reveal-stagger">
+              <div class="card-icon">🏗️</div>
+              <h3>Event-Driven Payment System</h3>
+              <p>Designed and implemented an event-driven payment processing microservice using Spring Boot and Apache Kafka. Achieved 99.99% reliability with exactly-once semantics and real-time transaction monitoring across services.</p>
+              <div class="card-meta">
+                <span class="badge">Spring Boot</span>
+                <span class="badge">Kafka</span>
+                <span class="badge">PostgreSQL</span>
+              </div>
+              <a href="#" class="link">View architecture →</a>
+            </article>
+
+            <article class="glass-card reveal-stagger">
+              <div class="card-icon">🔐</div>
+              <h3>Distributed Authentication Service</h3>
+              <p>Built a centralized OAuth 2.0 and JWT-based authentication service handling 50+ client applications. Implemented service-to-service communication patterns, distributed caching with Redis, and comprehensive API gateway routing.</p>
+              <div class="card-meta">
+                <span class="badge">Spring Security</span>
+                <span class="badge">Redis</span>
+                <span class="badge">Docker</span>
+              </div>
+              <a href="#" class="link">View implementation →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <h2>Let's Build Something</h2>
+            <div class="floating-icon icon-mail">✉</div>
+          </div>
+          <div class="glass-card contact-wrapper reveal">
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-row">
+                <label for="name">Your Name</label>
+                <input id="name" name="name" type="text" placeholder="Jagadeesh" required />
+              </div>
+
+              <div class="form-row">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@company.com" required />
+              </div>
+
+              <div class="form-row">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+              </div>
+
+              <div class="form-row form-submit">
+                <button class="btn btn-primary" type="submit">Send Message</button>
+                <span id="form-status" class="form-status" aria-live="polite"></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>© <span id="year"></span> Jagadeesh Undavalli — Crafted with precision and passion</p>
+          <div class="social-links">
+            <a href="#" aria-label="GitHub">GitHub</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+  </body>
+</html>
