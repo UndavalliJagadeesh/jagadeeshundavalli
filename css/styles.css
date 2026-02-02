@@ -666,9 +666,10 @@ p {
 }
 
 .glass-card .card-icon {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: var(--spacing-md);
   display: inline-block;
+  color: var(--accent);
 }
 
 .card-meta {
@@ -676,6 +677,18 @@ p {
   flex-wrap: wrap;
   gap: 0.5rem;
   margin: var(--spacing-md) 0;
+}
+
+.project-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: var(--spacing-md);
+}
+
+.project-links .link {
+  display: block;
+  width: fit-content;
 }
 
 .badge {
