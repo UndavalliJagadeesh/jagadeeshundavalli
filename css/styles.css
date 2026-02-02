@@ -800,6 +800,60 @@ textarea {
   min-height: 1.5rem;
 }
 
+/* Contact Information Cards */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: rgba(0, 212, 255, 0.03);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.contact-item:hover {
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.contact-details {
+  flex: 1;
+}
+
+.contact-details h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.contact-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color var(--transition-base);
+  word-break: break-all;
+}
+
+.contact-link:hover {
+  color: var(--accent-secondary);
+  text-decoration: underline;
+}
+
 /* ============================================
    FOOTER
    ============================================ */
