@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.style.position = 'absolute';
       nav.style.right = '1rem';
       nav.style.top = '64px';
-      nav.style.background = 'rgba(255,255,255,.98)';
+      // Removed background override to preserve CSS glass effect
       nav.style.padding = '1rem';
       nav.style.borderRadius = '8px';
       nav.style.boxShadow = '0 6px 18px rgba(10,10,20,.08)';
