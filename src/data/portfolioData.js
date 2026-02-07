@@ -22,42 +22,11 @@ export const hero = {
 export const projects = [
     {
         id: 1,
-        icon: 'school',
-        title: 'Student Dropout Prediction',
-        description:
-            'Developed an intelligent machine learning system to help educational institutions predict and prevent student dropouts. Leveraged RandomForestClassifier to achieve superior accuracy in identifying at-risk students, enabling early intervention strategies. Deployed as a cloud-based application using Streamlit for real-time predictions.',
-        technologies: ['Machine Learning', 'Python', 'Streamlit', 'RandomForest'],
-        links: [
-            {
-                label: 'View source code',
-                url: 'https://github.com/UndavalliJagadeesh/Student_Dropout_Prediction',
-            },
-            {
-                label: 'Live deployment',
-                url: 'https://huggingface.co/spaces/jagadeeshundavalli/Student_Dropout_Prediciton',
-            },
-        ],
-    },
-    {
-        id: 2,
-        icon: 'directions_car',
-        title: 'Anonymous Vehicle Identification System',
-        description:
-            'Built an automated parking management system combining OCR technology and pattern recognition to identify vehicles in real-time. Extracts registration numbers from images, cross-references with database, and implements intelligent fallback mechanisms for unrecognized vehicles with administrator notifications.',
-        technologies: ['OCR', 'Pattern Recognition', 'Image Processing', 'Python'],
-        links: [
-            {
-                label: 'View source code',
-                url: 'https://github.com/UndavalliJagadeesh/Vehicle-Plate-Detection',
-            },
-        ],
-    },
-    {
-        id: 3,
         icon: 'webhook',
         title: 'DhaanAPI',
         description:
             'Created a versatile RESTful API framework using Flask that provides seamless database interaction capabilities. Offers efficient data retrieval, manipulation, and storage through well-designed endpoints. Deployed on cloud infrastructure to ensure high availability and scalability for diverse use cases.',
+        image: "/assets/dhaanAPI.jpeg", // Add your image URL here
         technologies: ['Flask', 'Python', 'RESTful API', 'Postgres'],
         links: [
             {
@@ -70,6 +39,40 @@ export const projects = [
             },
         ],
     },
+    {
+        id: 2,
+        icon: 'directions_car',
+        title: 'Anonymous Vehicle Identification System',
+        description:
+            'Built an automated parking management system combining OCR technology and pattern recognition to identify vehicles in real-time. Extracts registration numbers from images, cross-references with database, and implements intelligent fallback mechanisms for unrecognized vehicles with administrator notifications.',
+        image: "/assets/vehiclePlateDetection.jpeg", // Add your image URL here
+        technologies: ['Pattern Recognition', 'OCR', 'Image Processing', 'Python'],
+        links: [
+            {
+                label: 'View source code',
+                url: 'https://github.com/UndavalliJagadeesh/Vehicle-Plate-Detection',
+            },
+        ],
+    },
+    {
+        id: 3,
+        title: 'Student Dropout Prediction',
+        description: 'Built an automated prediction system to help educational institutions predict and prevent student dropouts. Leveraged RandomForestClassifier to achieve superior accuracy in identifying at-risk students, enabling early intervention strategies. Deployed as a cloud-based application using Streamlit for real-time predictions.',
+        icon: 'school',
+        image: "/assets/dropoutPrediction.jpeg", // Add your image URL here
+        technologies: ['Machine Learning', 'Python', 'Streamlit', 'RandomForest', 'Git', 'Sklearn'],
+        links: [
+            {
+                label: 'View source code',
+                url: 'https://github.com/UndavalliJagadeesh/Student_Dropout_Prediction',
+            },
+            {
+                label: 'Live deployment',
+                url: 'https://huggingface.co/spaces/jagadeeshundavalli/Student_Dropout_Prediciton',
+            },
+        ],
+    },
+
 ];
 
 export const experience = [
