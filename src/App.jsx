@@ -1,5 +1,5 @@
 import './styles.css';
-import Starfield from './components/Starfield';
+import AnimatedBackground from './components/AnimatedBackground';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import { useScrollReveal } from './hooks/useScrollReveal';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   // Initialize scroll reveal animations
@@ -22,8 +23,8 @@ function App() {
   };
 
   return (
-    <>
-      <Starfield />
+    <ThemeProvider>
+      <AnimatedBackground />
       <Header onNavigate={handleNavigate} />
 
       <main>
@@ -35,7 +36,7 @@ function App() {
       </main>
 
       <Footer />
-    </>
+    </ThemeProvider>
   );
 }
 

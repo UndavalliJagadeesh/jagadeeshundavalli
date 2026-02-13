@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 const Header = ({ onNavigate }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,14 +24,17 @@ const Header = ({ onNavigate }) => {
                     <a href="#contact" onClick={(e) => handleClick(e, '#contact')}>Contact</a>
                 </nav>
 
-                <button
-                    id="nav-toggle"
-                    className="nav-toggle"
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    aria-label="Toggle navigation"
-                >
-                    ☰
-                </button>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <ThemeToggle />
+                    <button
+                        id="nav-toggle"
+                        className="nav-toggle"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle navigation"
+                    >
+                        ☰
+                    </button>
+                </div>
             </div>
         </header>
     );
