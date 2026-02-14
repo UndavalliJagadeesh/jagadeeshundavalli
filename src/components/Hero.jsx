@@ -1,10 +1,26 @@
-import { hero } from '../data/portfolioData';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 const Hero = ({ onNavigate }) => {
+    const { data, loading } = usePortfolioData();
+
     const handleClick = (e, href) => {
         e.preventDefault();
         onNavigate(href);
     };
+
+    if (loading || !data) {
+        return (
+            <section id="home" className="hero">
+                <div className="container hero-inner">
+                    <div className="hero-content reveal">
+                        <h1>Loading...</h1>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    const { hero } = data;
 
     return (
         <section id="home" className="hero">

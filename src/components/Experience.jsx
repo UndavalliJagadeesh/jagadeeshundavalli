@@ -1,6 +1,24 @@
-import { experience } from '../data/portfolioData';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 const Experience = () => {
+    const { data, loading } = usePortfolioData();
+
+    if (loading || !data) {
+        return (
+            <section id="experience" className="section">
+                <div className="container">
+                    <div className="section-header reveal">
+                        <h2>Professional Journey</h2>
+                        <div className="floating-icon icon-briefcase">💼</div>
+                    </div>
+                    <p>Loading experience...</p>
+                </div>
+            </section>
+        );
+    }
+
+    const { experience } = data;
+
     return (
         <section id="experience" className="section">
             <div className="container">

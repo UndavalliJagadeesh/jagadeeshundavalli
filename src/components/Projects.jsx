@@ -1,14 +1,31 @@
 import { useState, useEffect } from 'react';
-import { projects } from '../data/portfolioData';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 const Projects = () => {
     const [isTouchDevice, setIsTouchDevice] = useState(false);
+    const { data, loading } = usePortfolioData();
 
     useEffect(() => {
         // Detect touch device
         const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         setIsTouchDevice(hasTouchScreen);
     }, []);
+
+    if (loading || !data) {
+        return (
+            <section id="projects" className="section">
+                <div className="container">
+                    <div className="section-header reveal">
+                        <h2>Featured Work</h2>
+                        <div className="floating-icon icon-rocket">🚀</div>
+                    </div>
+                    <p>Loading projects...</p>
+                </div>
+            </section>
+        );
+    }
+
+    const { projects } = data;
 
     return (
         <section id="projects" className="section">
