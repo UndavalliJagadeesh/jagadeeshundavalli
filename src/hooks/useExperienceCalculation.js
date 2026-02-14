@@ -20,10 +20,10 @@ export const useExperienceCalculation = (startDate) => {
 
             let text = '';
             if (years > 0 && months > 0) {
-                text = `${years}+ year${years > 1 ? 's' : ''} and ${months} month${months > 1 ? 's' : ''
+                text = `${years} year${years > 1 ? 's' : ''} and ${months} month${months > 1 ? 's' : ''
                     }`;
             } else if (years > 0) {
-                text = `${years}+ year${years > 1 ? 's' : ''}`;
+                text = `${years} year${years > 1 ? 's' : ''}`;
             } else {
                 text = `${months} month${months > 1 ? 's' : ''}`;
             }

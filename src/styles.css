@@ -309,8 +309,19 @@ p {
 .theme-toggle:hover {
   background: var(--accent);
   color: var(--bg);
-  transform: rotate(180deg);
   box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Only apply rotation on devices that support hover (non-touch devices) */
+@media (hover: hover) and (pointer: fine) {
+  .theme-toggle:hover {
+    transform: rotate(180deg);
+  }
+}
+
+/* For touch devices, apply rotation on click via class */
+.theme-toggle.rotating {
+  transform: rotate(180deg);
 }
 
 .theme-toggle svg {
@@ -628,6 +639,13 @@ p {
   position: relative;
   flex: 0 0 calc(50% - 1rem);
   min-width: 380px;
+}
+
+/* Light mode - use gradient background like flip-card-back */
+body.light .experience-card.glass-card,
+[data-theme="light"] .experience-card.glass-card {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(128, 0, 255, 0.1) 100%);
+  border: 1px solid var(--accent);
 }
 
 .experience-header {

@@ -1,12 +1,27 @@
+import { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 
 const ThemeToggle = () => {
     const { theme, toggleTheme } = useTheme();
+    const [isRotating, setIsRotating] = useState(false);
+
+    const handleClick = () => {
+        // Trigger rotation animation
+        setIsRotating(true);
+
+        // Toggle theme
+        toggleTheme();
+
+        // Remove rotation class after animation completes
+        setTimeout(() => {
+            setIsRotating(false);
+        }, 300); // Match transition duration
+    };
 
     return (
         <button
-            onClick={toggleTheme}
-            className="theme-toggle"
+            onClick={handleClick}
+            className={`theme-toggle ${isRotating ? 'rotating' : ''}`}
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
         >
