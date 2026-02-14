@@ -1,6 +1,15 @@
+import { useState, useEffect } from 'react';
 import { projects } from '../data/portfolioData';
 
 const Projects = () => {
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+    useEffect(() => {
+        // Detect touch device
+        const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        setIsTouchDevice(hasTouchScreen);
+    }, []);
+
     return (
         <section id="projects" className="section">
             <div className="container">
@@ -29,7 +38,9 @@ const Projects = () => {
                                             <span key={index} className="badge">{tech}</span>
                                         ))}
                                     </div>
-                                    <div className="flip-hint">Hover to see more →</div>
+                                    <div className="flip-hint">
+                                        {isTouchDevice ? 'Click to see more →' : 'Hover to see more →'}
+                                    </div>
                                 </div>
                                 <div className="flip-card-back">
                                     <h3>{project.title}</h3>
