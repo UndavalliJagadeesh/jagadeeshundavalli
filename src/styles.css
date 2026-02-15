@@ -648,9 +648,9 @@ p {
   min-width: 380px;
 }
 
-/* Light mode - use gradient background like flip-card-back */
-body.light .experience-card.glass-card,
-[data-theme="light"] .experience-card.glass-card {
+/* Light mode - apply gradient background to all glass cards */
+body.light .glass-card,
+[data-theme="light"] .glass-card {
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(128, 0, 255, 0.1) 100%);
   border: 1px solid var(--accent);
 }
