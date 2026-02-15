@@ -16,7 +16,7 @@ const Contact = () => {
         );
     }
 
-    const { contactInfo } = data;
+    const { contactInfo, sections } = data;
 
     return (
         <section id="contact" className="section">

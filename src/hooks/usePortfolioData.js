@@ -32,6 +32,9 @@ export const usePortfolioData = () => {
 
                 // Fallback to local data
                 setData({
+                    header: fallbackData.header,
+                    about: fallbackData.about,
+                    sections: fallbackData.sections,
                     hero: fallbackData.hero,
                     projects: fallbackData.projects,
                     experience: fallbackData.experience,

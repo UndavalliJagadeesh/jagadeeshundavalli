@@ -34,6 +34,11 @@ const Hero = ({ onNavigate }) => {
                     <p className="lead">
                         {hero.description}
                     </p>
+                    <div className="tech-stack">
+                        {hero.techStack.map((tech, index) => (
+                            <span key={index} className="tech-badge">{tech}</span>
+                        ))}
+                    </div>
                     <div className="ctas">
                         <a href={hero.primaryButton.link} onClick={(e) => handleClick(e, hero.primaryButton.link)} className="btn btn-primary">
                             {hero.primaryButton.text}
@@ -41,11 +46,6 @@ const Hero = ({ onNavigate }) => {
                         <a href={hero.secondaryButton.link} onClick={(e) => handleClick(e, hero.secondaryButton.link)} className="btn btn-secondary">
                             {hero.secondaryButton.text}
                         </a>
-                    </div>
-                    <div className="tech-stack">
-                        {hero.techStack.map((tech, index) => (
-                            <span key={index} className="tech-badge">{tech}</span>
-                        ))}
                     </div>
                 </div>
                 <div className="hero-visual reveal">

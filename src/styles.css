@@ -553,7 +553,7 @@ p {
 
 .section-header {
   position: relative;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-xs);
 }
 
 .section-header h2 {

@@ -25,7 +25,7 @@ const Projects = () => {
         );
     }
 
-    const { projects } = data;
+    const { projects, sections } = data;
 
     return (
         <section id="projects" className="section">
