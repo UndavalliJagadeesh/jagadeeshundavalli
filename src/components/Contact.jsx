@@ -8,8 +8,8 @@ const Contact = () => {
             <section id="contact" className="section">
                 <div className="container">
                     <div className="section-header reveal">
-                        <h2>Get In Touch</h2>
-                        <div className="floating-icon icon-contact">📧</div>
+                        <h2>{sections.contact.title}</h2>
+                        <div className="floating-icon icon-contact">{sections.contact.icon}</div>
                     </div>
                 </div>
             </section>
@@ -22,8 +22,8 @@ const Contact = () => {
         <section id="contact" className="section">
             <div className="container">
                 <div className="section-header reveal">
-                    <h2>Let's Build Something</h2>
-                    <div className="floating-icon icon-mail">📪</div>
+                    <h2>{sections.contact.title}</h2>
+                    <div className="floating-icon icon-contact">{sections.contact.icon}</div>
                 </div>
                 <div className="glass-card contact-wrapper reveal">
                     <div className="contact-info">

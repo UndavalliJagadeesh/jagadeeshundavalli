@@ -25,7 +25,18 @@ export const usePortfolioData = () => {
                 }
 
                 const jsonData = await response.json();
-                setData(jsonData);
+
+                // Merge API data with fallback data to ensure all fields are present
+                setData({
+                    header: jsonData.header || fallbackData.header,
+                    about: jsonData.about || fallbackData.about,
+                    sections: jsonData.sections || fallbackData.sections,
+                    hero: jsonData.hero || fallbackData.hero,
+                    projects: jsonData.projects || fallbackData.projects,
+                    experience: jsonData.experience || fallbackData.experience,
+                    contactInfo: jsonData.contactInfo || fallbackData.contactInfo,
+                    socialLinks: jsonData.socialLinks || fallbackData.socialLinks,
+                });
             } catch (err) {
                 console.error('Failed to fetch portfolio data from API:', err);
                 console.log('Falling back to local data');

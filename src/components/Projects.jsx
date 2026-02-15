@@ -31,8 +31,8 @@ const Projects = () => {
         <section id="projects" className="section">
             <div className="container">
                 <div className="section-header reveal">
-                    <h2>Featured Work</h2>
-                    <div className="floating-icon icon-rocket">🚀</div>
+                    <h2>{sections.projects.title}</h2>
+                    <div className="floating-icon icon-rocket">{sections.projects.icon}</div>
                 </div>
                 <div className="grid projects-grid">
                     {projects.map((project) => (
