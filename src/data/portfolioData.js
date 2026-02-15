@@ -38,7 +38,7 @@ export const sections = {
     },
     contact: {
         title: "Get In Touch",
-        icon: "📧"
+        icon: "📪"
     }
 };
 
