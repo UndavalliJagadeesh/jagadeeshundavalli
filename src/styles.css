@@ -515,6 +515,13 @@ p {
   font-size: 2rem;
 }
 
+.icon-briefcase {
+  top: 40px;
+  right: -30px;
+  animation-delay: 1s;
+  font-size: 2rem;
+}
+
 .icon-rocket {
   top: 60px;
   right: -20px;
