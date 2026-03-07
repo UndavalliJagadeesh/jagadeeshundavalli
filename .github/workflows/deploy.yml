@@ -3,12 +3,10 @@ name: Deploy to Vercel
 on:
   workflow_dispatch:
     inputs:
-      tag:
-        description: "Git tag to deploy (example: v1.2.0)"
-        required: true
       environment:
-        description: "Deployment environment"
+        description: "Select deployment environment"
         required: true
+        default: "test"
         type: choice
         options:
           - test
@@ -19,56 +17,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout code
+
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # fetch all tags
 
-      # 2️⃣ Fetch all tags
-      - name: Fetch tags
-        run: git fetch --tags
-
-      # 3️⃣ Validate tag exists
-      - name: Validate tag exists
-        run: |
-          TAG=${{ github.event.inputs.tag }}
-          if git rev-parse "$TAG" >/dev/null 2>&1; then
-            echo "Tag $TAG exists"
-          else
-            echo "ERROR: Tag $TAG does not exist"
-            git tag
-            exit 1
-          fi
-
-      # 4️⃣ Checkout the selected tag
-      - name: Checkout selected tag
-        run: git checkout ${{ github.event.inputs.tag }}
-
-      # 5️⃣ Setup Node.js
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # 6️⃣ Install project dependencies
       - name: Install dependencies
         run: npm install
 
-      # 7️⃣ Install Vercel CLI
-      - name: Install Vercel CLI
-        run: npm install -g vercel
+      - name: Build React app
+        run: npm run build
 
-      # 8️⃣ Build project for Vercel
-      - name: Build project for Vercel
+      - name: Install Vercel CLI
+        run: npm install --global vercel
+
+      - name: Pull Vercel Environment
         run: |
           if [ "${{ github.event.inputs.environment }}" = "production" ]; then
-            vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+            vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
           else
-            vercel build --token=${{ secrets.VERCEL_TOKEN }}
+            vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
           fi
 
-      # 9️⃣ Deploy to Vercel
+      - name: Build Vercel Project
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
       - name: Deploy to Vercel
         run: |
           if [ "${{ github.event.inputs.environment }}" = "production" ]; then
