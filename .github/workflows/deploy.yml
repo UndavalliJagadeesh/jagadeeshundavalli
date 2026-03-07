@@ -59,15 +59,7 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      # 8️⃣ Pull Vercel project settings
-      - name: Pull Vercel project configuration
-        run: |
-          vercel pull --yes \
-            --token=${{ secrets.VERCEL_TOKEN }} \
-            --scope=${{ secrets.VERCEL_ORG_ID }} \
-            --project=${{ secrets.VERCEL_PROJECT_ID }}
-
-      # 9️⃣ Build project for Vercel
+      # 8️⃣ Build project for Vercel
       - name: Build project for Vercel
         run: |
           if [ "${{ github.event.inputs.environment }}" = "production" ]; then
@@ -84,7 +76,7 @@ jobs:
               --project=${{ secrets.VERCEL_PROJECT_ID }}
           fi
 
-      # 🔟 Deploy to Vercel
+      # 9️⃣ Deploy to Vercel
       - name: Deploy to Vercel
         run: |
           if [ "${{ github.event.inputs.environment }}" = "production" ]; then
