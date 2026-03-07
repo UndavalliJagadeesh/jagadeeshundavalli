@@ -19,14 +19,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      # 1️⃣ Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # fetch all tags
 
+      # 2️⃣ Fetch all tags
       - name: Fetch tags
         run: git fetch --tags
 
+      # 3️⃣ Validate tag exists
       - name: Validate tag exists
         run: |
           TAG=${{ github.event.inputs.tag }}
@@ -34,22 +37,29 @@ jobs:
             echo "Tag $TAG exists"
           else
             echo "ERROR: Tag $TAG does not exist"
-            echo "Available tags:"
             git tag
             exit 1
           fi
 
+      # 4️⃣ Checkout the selected tag
       - name: Checkout selected tag
         run: git checkout ${{ github.event.inputs.tag }}
 
+      # 5️⃣ Setup Node.js
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
+      # 6️⃣ Install project dependencies
       - name: Install dependencies
         run: npm install
 
+      # 7️⃣ Install Vercel CLI
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      # 8️⃣ Build project for Vercel
       - name: Build project for Vercel
         run: |
           if [ "${{ github.event.inputs.environment }}" = "production" ]; then
@@ -58,6 +68,7 @@ jobs:
             vercel build --token=${{ secrets.VERCEL_TOKEN }}
           fi
 
+      # 9️⃣ Deploy to Vercel
       - name: Deploy to Vercel
         run: |
           if [ "${{ github.event.inputs.environment }}" = "production" ]; then
