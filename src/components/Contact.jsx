@@ -1,12 +1,29 @@
-import { contactInfo } from '../data/portfolioData';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 const Contact = () => {
+    const { data, loading } = usePortfolioData();
+
+    if (loading || !data) {
+        return (
+            <section id="contact" className="section">
+                <div className="container">
+                    <div className="section-header reveal">
+                        <h2>Get In Touch</h2>
+                        <div className="floating-icon icon-mail">📪</div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    const { contactInfo, sections } = data;
+
     return (
         <section id="contact" className="section">
             <div className="container">
                 <div className="section-header reveal">
-                    <h2>Let's Build Something</h2>
-                    <div className="floating-icon icon-mail">📪</div>
+                    <h2>{sections.contact.title}</h2>
+                    <div className="floating-icon icon-mail">{sections.contact.icon}</div>
                 </div>
                 <div className="glass-card contact-wrapper reveal">
                     <div className="contact-info">

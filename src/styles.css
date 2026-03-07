@@ -1,5 +1,5 @@
 :root {
-  /* Color Palette */
+  /* Color Palette - Dark Mode */
   --bg: #0a0e27;
   --bg-secondary: #0f1535;
   --text: #e4e8f0;
@@ -37,6 +37,22 @@
   --transition-slow: 0.5s ease-out;
 }
 
+/* Light Mode Variables */
+body.light,
+[data-theme="light"] {
+  --bg: #f5f7fa;
+  --bg-secondary: #ffffff;
+  --text: #1a202c;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --accent: #0891b2;
+  --accent-secondary: #06b6d4;
+  --accent-glow: rgba(8, 145, 178, 0.3);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+}
+
+
 /* ============================================
    GLOBAL STYLES
    ============================================ */
@@ -60,10 +76,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Canvas for stars */
-#stars-canvas {
+
+/* Canvas for animated background (stars in dark mode, sun/clouds/birds in light mode) */
+#background-canvas {
   position: fixed;
   top: 0;
   left: 0;
@@ -204,7 +222,7 @@ p {
   right: 0;
   z-index: 30;
   backdrop-filter: blur(10px);
-  background: rgba(10, 14, 39, 0.6);
+  background: var(--glass-bg);
   border-bottom: 1px solid var(--glass-border);
   transition: all var(--transition-base);
 }
@@ -269,6 +287,47 @@ p {
   color: var(--accent);
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  padding: 0;
+  margin-left: var(--spacing-md);
+}
+
+.theme-toggle:hover {
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Only apply rotation on devices that support hover (non-touch devices) */
+@media (hover: hover) and (pointer: fine) {
+  .theme-toggle:hover {
+    transform: rotate(180deg);
+  }
+}
+
+/* For touch devices, apply rotation on click via class */
+.theme-toggle.rotating {
+  transform: rotate(180deg);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-base);
 }
 
 /* ============================================
@@ -456,6 +515,13 @@ p {
   font-size: 2rem;
 }
 
+.icon-briefcase {
+  top: 40px;
+  right: -30px;
+  animation-delay: 1s;
+  font-size: 2rem;
+}
+
 .icon-rocket {
   top: 60px;
   right: -20px;
@@ -494,7 +560,7 @@ p {
 
 .section-header {
   position: relative;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-xs);
 }
 
 .section-header h2 {
@@ -580,6 +646,13 @@ p {
   position: relative;
   flex: 0 0 calc(50% - 1rem);
   min-width: 380px;
+}
+
+/* Light mode - apply gradient background to all glass cards */
+body.light .glass-card,
+[data-theme="light"] .glass-card {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(128, 0, 255, 0.1) 100%);
+  border: 1px solid var(--accent);
 }
 
 .experience-header {
@@ -985,7 +1058,7 @@ textarea {
   border-top: 1px solid var(--glass-border);
   padding: var(--spacing-lg) 0;
   margin-top: var(--spacing-xl);
-  background: rgba(10, 14, 39, 0.5);
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
 }
 

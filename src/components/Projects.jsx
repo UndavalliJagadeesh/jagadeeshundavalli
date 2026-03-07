@@ -1,12 +1,38 @@
-import { projects } from '../data/portfolioData';
+import { useState, useEffect } from 'react';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 const Projects = () => {
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
+    const { data, loading } = usePortfolioData();
+
+    useEffect(() => {
+        // Detect touch device
+        const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        setIsTouchDevice(hasTouchScreen);
+    }, []);
+
+    if (loading || !data) {
+        return (
+            <section id="projects" className="section">
+                <div className="container">
+                    <div className="section-header reveal">
+                        <h2>Featured Work</h2>
+                        <div className="floating-icon icon-rocket">🚀</div>
+                    </div>
+                    <p>Loading projects...</p>
+                </div>
+            </section>
+        );
+    }
+
+    const { projects, sections } = data;
+
     return (
         <section id="projects" className="section">
             <div className="container">
                 <div className="section-header reveal">
-                    <h2>Featured Work</h2>
-                    <div className="floating-icon icon-rocket">🚀</div>
+                    <h2>{sections.projects.title}</h2>
+                    <div className="floating-icon icon-rocket">{sections.projects.icon}</div>
                 </div>
                 <div className="grid projects-grid">
                     {projects.map((project) => (
@@ -29,7 +55,9 @@ const Projects = () => {
                                             <span key={index} className="badge">{tech}</span>
                                         ))}
                                     </div>
-                                    <div className="flip-hint">Hover to see more →</div>
+                                    <div className="flip-hint">
+                                        {isTouchDevice ? 'Click to see more →' : 'Hover to see more →'}
+                                    </div>
                                 </div>
                                 <div className="flip-card-back">
                                     <h3>{project.title}</h3>

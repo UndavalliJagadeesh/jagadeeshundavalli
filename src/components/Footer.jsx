@@ -1,6 +1,14 @@
-import { socialLinks } from '../data/portfolioData';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 const Footer = () => {
+    const { data, loading } = usePortfolioData();
+
+    if (loading || !data) {
+        return null; // Don't show footer while loading
+    }
+
+    const { socialLinks } = data;
+
     return (
         <footer className="site-footer">
             <div className="container">

@@ -1,10 +1,26 @@
-import { hero } from '../data/portfolioData';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 const Hero = ({ onNavigate }) => {
+    const { data, loading } = usePortfolioData();
+
     const handleClick = (e, href) => {
         e.preventDefault();
         onNavigate(href);
     };
+
+    if (loading || !data) {
+        return (
+            <section id="home" className="hero">
+                <div className="container hero-inner">
+                    <div className="hero-content reveal">
+                        <h1>Loading...</h1>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    const { hero } = data;
 
     return (
         <section id="home" className="hero">
@@ -18,6 +34,11 @@ const Hero = ({ onNavigate }) => {
                     <p className="lead">
                         {hero.description}
                     </p>
+                    <div className="tech-stack">
+                        {hero.techStack.map((tech, index) => (
+                            <span key={index} className="tech-badge">{tech}</span>
+                        ))}
+                    </div>
                     <div className="ctas">
                         <a href={hero.primaryButton.link} onClick={(e) => handleClick(e, hero.primaryButton.link)} className="btn btn-primary">
                             {hero.primaryButton.text}
@@ -25,11 +46,6 @@ const Hero = ({ onNavigate }) => {
                         <a href={hero.secondaryButton.link} onClick={(e) => handleClick(e, hero.secondaryButton.link)} className="btn btn-secondary">
                             {hero.secondaryButton.text}
                         </a>
-                    </div>
-                    <div className="tech-stack">
-                        {hero.techStack.map((tech, index) => (
-                            <span key={index} className="tech-badge">{tech}</span>
-                        ))}
                     </div>
                 </div>
                 <div className="hero-visual reveal">

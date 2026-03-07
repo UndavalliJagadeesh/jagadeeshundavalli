@@ -2,6 +2,46 @@
 //    PORTFOLIO DATA
 // ============================================
 
+// Header/Navigation
+export const header = {
+    logo: "JU",
+    navigation: [
+        { label: "About", href: "#about" },
+        { label: "Experience", href: "#experience" },
+        { label: "Projects", href: "#projects" },
+        { label: "Contact", href: "#contact" }
+    ]
+};
+
+// About Section
+export const about = {
+    title: "About",
+    icon: "★",
+    content: [
+        "I'm a Software Engineer specializing in Java backend development with a passion for building scalable, resilient systems that handle mission-critical workloads. With {experienceYears} of experience in implementing distributed microservices architectures, I focus on clean code, API design, and system reliability.",
+        "My expertise: microservices design patterns, API development with Spring Boot. I thrive on solving complex backend challenges and mentoring teams on best practices."
+    ],
+    profileImage: "/assets/profileImage.jpeg",
+    profileImageAltText: "Jagadeesh Undavalli",
+    startDate: "2024-10-07" // ISO format for experience calculation
+};
+
+// Section Metadata
+export const sections = {
+    experience: {
+        title: "Professional Journey",
+        icon: "💼"
+    },
+    projects: {
+        title: "Featured Work",
+        icon: "🚀"
+    },
+    contact: {
+        title: "Get In Touch",
+        icon: "📪"
+    }
+};
+
 // Hero Section
 export const hero = {
     greeting: "H! I'm Jagadeesh",
@@ -15,7 +55,15 @@ export const hero = {
         text: "Start a Conversation",
         link: "#contact"
     },
-    techStack: ["Java", "Spring Boot", "Microservices", "Git"]
+    techStack: ['Java',
+        'Spring Boot',
+        'Junit',
+        'Microservices',
+        'Git',
+        'Gradle',
+        'SQL',
+        'MongoDB',
+        'Splunk']
 };
 
 // Projects Data
