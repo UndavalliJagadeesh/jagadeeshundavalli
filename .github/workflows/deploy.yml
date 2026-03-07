@@ -91,12 +91,3 @@ jobs:
               --yes)
             echo "Test deployment URL: $DEPLOY_URL"
           fi
-
-      # 🔟 Alias production to main domain
-      - name: Alias production to main domain
-        if: ${{ github.event.inputs.environment == 'production' }}
-        run: |
-          vercel alias set $DEPLOY_URL jagadeeshundavalli.vercel.app \
-            --token="${{ secrets.VERCEL_TOKEN }}" \
-            --scope="${{ secrets.VERCEL_ORG_ID }}" \
-            --yes
